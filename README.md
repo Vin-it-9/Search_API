@@ -110,12 +110,9 @@ You can test the `/api/supplier/query` endpoint with the following JSON request 
 
 **Request:**
 
-\```json
+\```bash
 {
   "manufacturingProcesses": "casting"
 }
 \```
 
-## Additional Information
-
-For more details, refer to the code comments and documentation within the project. The project structure is organized to support easy expansion and customization, ensuring flexibility in implementing additional features in the future.
