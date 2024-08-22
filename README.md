@@ -48,21 +48,6 @@ spring.datasource.password=root
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
 ```
-### 4. Build and Run the Project
-
-Navigate to the project directory and build the project using Maven:
-
-\```bash
-mvn clean install
-\```
-
-After the build is complete, run the project:
-
-\```bash
-mvn spring-boot:run
-\```
-
-OR
 
 ### 5. Open the Project in an IDE
 
@@ -74,35 +59,19 @@ To work with the project in an IDE, follow these steps:
 
 After running the project, the required database tables will be automatically created.
 
-The structure of the `supplier` table will be as follows:
-
-\```
-+-----------------------+-----------------------------------------------------+------+-----+---------+----------------+
-| Field                 | Type                                                | Null | Key | Default | Extra          |
-+-----------------------+-----------------------------------------------------+------+-----+---------+----------------+
-| supplier_id           | bigint                                              | NO   | PRI | NULL    | auto_increment |
-| company_name          | varchar(255)                                        | NO   |     | NULL    |                |
-| location              | varchar(255)                                        | YES  |     | NULL    |                |
-| manufacturing_process | enum('CASTING','COATING','MOULDING','_3D_PRINTING') | YES  |     | NULL    |                |
-| nature_of_business    | enum('LARGE_SCALE','MEDIUM_SCALE','SMALL_SCALE')    | YES  |     | NULL    |                |
-| website               | varchar(255)                                        | YES  |     | NULL    |                |
-+-----------------------+-----------------------------------------------------+------+-----+---------+----------------+
-\```
-
-
 ### 6. Load Raw Data
 
 The project includes a SQL file containing raw data needed for testing. The file is located at `/main/resources/static/row_data.sql`. You can execute this file in your MySQL database using a MySQL client or by integrating it into the Spring Boot startup.
 
 ## Testing the `/api/supplier/query` Endpoint
 
-You can test the `/api/supplier/query` endpoint with the following JSON request bodies. Use tools like [Postman](https://www.postman.com/) or [cURL](https://curl.se/) for testing.
+You can test the `localhost:8080/api/supplier/query` endpoint with the following JSON request bodies. Use tools like [Postman](https://www.postman.com/) or [cURL](https://curl.se/) for testing.
 
 ### 1. Test Case: Fetch Small Scale Manufacturers in Pune with 3D Printing Capability
 
 **Request:**
 
-\```json
+```bash
 {
   "location": "Pune",
   "natureOfBusiness": "small_scale",
@@ -110,28 +79,29 @@ You can test the `/api/supplier/query` endpoint with the following JSON request 
   "page": 0,
   "size": 5
 }
-\```
+```
 
 ### 2. Test Case: Fetch All Manufacturers in Mumbai
 
 **Request:**
 
 
----bash
+
+```bash
 {
   "location": "Mumbai",
   "page": 0,
   "size": 5
 }
-\```
+```
 
 ### 3. Test Case: Fetch All Manufacturers with Casting Capability
 
 **Request:**
 
-\```bash
+```bash
 {
   "manufacturingProcesses": "casting"
 }
-\```
+```
 
