@@ -19,23 +19,23 @@ Before getting started, ensure you have the following installed on your machine:
 
 Start by cloning the project repository to your local machine:
 
-\```bash
+```bash
 git clone https://github.com/Vin-it-9/Search_API.git
-\```
+```
 
 ### 2. Set Up the Database
 
 Create the `makersharks` database in MySQL:
 
-\```sql
+```bash
 CREATE DATABASE makersharks;
-\```
+```
 
 ### 3. Configure Application Properties
 
 Update the `application.properties` file located at `src/main/resources` to match your local database configuration:
 
-\```properties
+```bash
 spring.application.name=search-api
 
 # MySQL Database Configuration
@@ -47,13 +47,8 @@ spring.datasource.password=root
 # JPA Configuration
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
-\```
-
-### 4. Load Raw Data
-
-The project includes a SQL file containing raw data needed for testing. The file is located at `/main/resources/static/row_data.sql`. You can execute this file in your MySQL database using a MySQL client or by integrating it into the Spring Boot startup.
-
-### 5. Build and Run the Project
+```
+### 4. Build and Run the Project
 
 Navigate to the project directory and build the project using Maven:
 
@@ -67,13 +62,37 @@ After the build is complete, run the project:
 mvn spring-boot:run
 \```
 
-### 6. Open the Project in an IDE
+OR
+
+### 5. Open the Project in an IDE
 
 To work with the project in an IDE, follow these steps:
 
 1. Download and install either [Spring Tool Suite (STS)](https://spring.io/tools) or [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
 2. Open the cloned project in your chosen IDE.
 3. Use the IDE's built-in tools to run and debug the project.
+
+After running the project, the required database tables will be automatically created.
+
+The structure of the `supplier` table will be as follows:
+
+\```
++-----------------------+-----------------------------------------------------+------+-----+---------+----------------+
+| Field                 | Type                                                | Null | Key | Default | Extra          |
++-----------------------+-----------------------------------------------------+------+-----+---------+----------------+
+| supplier_id           | bigint                                              | NO   | PRI | NULL    | auto_increment |
+| company_name          | varchar(255)                                        | NO   |     | NULL    |                |
+| location              | varchar(255)                                        | YES  |     | NULL    |                |
+| manufacturing_process | enum('CASTING','COATING','MOULDING','_3D_PRINTING') | YES  |     | NULL    |                |
+| nature_of_business    | enum('LARGE_SCALE','MEDIUM_SCALE','SMALL_SCALE')    | YES  |     | NULL    |                |
+| website               | varchar(255)                                        | YES  |     | NULL    |                |
++-----------------------+-----------------------------------------------------+------+-----+---------+----------------+
+\```
+
+
+### 6. Load Raw Data
+
+The project includes a SQL file containing raw data needed for testing. The file is located at `/main/resources/static/row_data.sql`. You can execute this file in your MySQL database using a MySQL client or by integrating it into the Spring Boot startup.
 
 ## Testing the `/api/supplier/query` Endpoint
 
