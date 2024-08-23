@@ -30,6 +30,8 @@ public class Supplier {
     @Enumerated(EnumType.STRING)
     private ManufacturingProcess manufacturingProcess;
 
+    // Getters and setters
+
     public Long getSupplierId() {
         return supplierId;
     }
@@ -83,6 +85,6 @@ public class Supplier {
     }
 
     public enum ManufacturingProcess {
-        moulding, _3d_printing, casting,  coating
+        moulding, _3d_printing, casting, coating
     }
 }

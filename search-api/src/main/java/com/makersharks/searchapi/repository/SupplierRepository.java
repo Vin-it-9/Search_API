@@ -10,6 +10,12 @@ import com.makersharks.searchapi.model.Supplier;
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier, Long> {
 
+    Page<Supplier> findBySupplierId(Long supplierId, Pageable pageable);
+
+    Page<Supplier> findByCompanyNameContaining(String companyName, Pageable pageable);
+
+    Page<Supplier> findByWebsiteContaining(String website, Pageable pageable);
+
     Page<Supplier> findByLocationAndNatureOfBusinessAndManufacturingProcess(
         String location,
         Supplier.NatureOfBusiness natureOfBusiness,
@@ -40,4 +46,7 @@ public interface SupplierRepository extends JpaRepository<Supplier, Long> {
     Page<Supplier> findByNatureOfBusiness(Supplier.NatureOfBusiness natureOfBusiness, Pageable pageable);
 
     Page<Supplier> findByManufacturingProcess(Supplier.ManufacturingProcess manufacturingProcess, Pageable pageable);
+
+    Page<Supplier> findAll(Pageable pageable);
+    
 }
