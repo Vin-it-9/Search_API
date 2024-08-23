@@ -23,7 +23,18 @@ Start by cloning the project repository to your local machine:
 git clone https://github.com/Vin-it-9/Search_API.git
 ```
 
-### 2. Set Up the Database
+### 2. Open the Project in an IDE
+
+To work with the project in an IDE, follow these steps:
+
+1. Download and install either [Spring Tool Suite (STS)](https://spring.io/tools) or [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
+2. Open the cloned project in your chosen IDE.
+3. Use the IDE's built-in tools to run and debug the project.
+
+After running the project, the required database tables will be automatically created.
+
+
+### 3. Set Up the Database
 
 Create the `makersharks` database in MySQL:
 
@@ -31,7 +42,7 @@ Create the `makersharks` database in MySQL:
 CREATE DATABASE makersharks;
 ```
 
-### 3. Configure Application Properties
+### 4. Configure Application Properties
 
 Update the `application.properties` file located at `src/main/resources` to match your local database configuration:
 
@@ -49,17 +60,8 @@ spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-### 5. Open the Project in an IDE
 
-To work with the project in an IDE, follow these steps:
-
-1. Download and install either [Spring Tool Suite (STS)](https://spring.io/tools) or [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
-2. Open the cloned project in your chosen IDE.
-3. Use the IDE's built-in tools to run and debug the project.
-
-After running the project, the required database tables will be automatically created.
-
-### 6. Load Raw Data
+### 5. Load Raw Data
 
 The project includes a SQL file containing raw data needed for testing. The file is located at `/main/resources/static/row_data.sql`. You can execute this file in your MySQL database using a MySQL client or by integrating it into the Spring Boot startup.
 
